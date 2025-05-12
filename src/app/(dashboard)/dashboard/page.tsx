@@ -27,7 +27,7 @@ export default function DashboardPage() {
 
   return (
     <>
-      <div className="bg-[#7862A6] h-full">
+      <div className="bg-[#78778f] h-full">
         <h1 className="text-white text-2xl ms-10">Dashboard</h1>
         <br />
         <div className="flex flex-row justify-center gap-5">
@@ -35,7 +35,7 @@ export default function DashboardPage() {
             <Input
               key={index}
               placeholder={`Input ${index + 1}`}
-              className="h-[100px] rounded-md bg-white w-[15%]"
+              className="h-[70px] rounded-md bg-[#2A2C38] border-[#2A2C38] text-white w-[15%]"
               value={value}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(e, index)}

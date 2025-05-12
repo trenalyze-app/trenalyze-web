@@ -1,11 +1,10 @@
 import {
     Home,
-    BarChart2,
-    Brain,
+    ChartPie,
+    Sparkles,
     User,
     Settings,
 } from "lucide-react"
-
 import {
     Sidebar,
     SidebarContent,
@@ -14,13 +13,18 @@ import {
     SidebarMenuItem,
     SidebarMenuButton,
 } from "@/components/ui/sidebar"
+import TrenalyzeIcon from "@/../public/Group 70.png"
+import Image from "next/image";
 
 export function AppSidebar() {
     return (
         <Sidebar className="bg-black text-white">
             <SidebarContent className="flex flex-col justify-between h-full !bg-[#1F1F1F]">
                 <div>
-                    <div className="p-4 text-xl font-bold tracking-tight">trenalyze</div>
+                    <div className="flex justify-start">
+                        <Image src={TrenalyzeIcon} alt="Logo" className="w-[12%] ms-3 mt-3 mb-5" />
+                        <p className="flex items-center ms-3">Trenalyze</p>
+                    </div>
                     <SidebarGroup>
                         <SidebarMenu>
                             <SidebarMenuItem>
@@ -34,7 +38,7 @@ export function AppSidebar() {
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
                                     <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
-                                        <BarChart2 className="w-5 h-5" />
+                                        <ChartPie className="w-5 h-5" />
                                         <span>Sentiment Analysis</span>
                                     </a>
                                 </SidebarMenuButton>
@@ -42,7 +46,7 @@ export function AppSidebar() {
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
                                     <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
-                                        <Brain className="w-5 h-5" />
+                                        <Sparkles className="w-5 h-5" />
                                         <span>AI Market Analyst</span>
                                     </a>
                                 </SidebarMenuButton>
@@ -50,7 +54,7 @@ export function AppSidebar() {
                         </SidebarMenu>
                     </SidebarGroup>
                 </div>
-                <div className="mb-4">
+                <div className="mb-4 ms-2">
                     <SidebarMenu>
                         <p className="ms-2">Settings</p>
                         <SidebarMenuItem>

@@ -4,6 +4,9 @@ import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import IconGoogle from "@/../public/Social Icons.png"
 import IconAppel from "@/../public/Social Icons (1).png"
+import { Label } from "@/components/ui/label"
+import { Checkbox } from "@/components/ui/checkbox"
+
 
 const RegisterPage = () => {
     return (
@@ -29,19 +32,22 @@ const RegisterPage = () => {
                                 <h1 className="text-black text-[25px] text-left mt-4 mb-5">Create Your Account</h1>
                                 <form>
                                     <div className="flex flex-col mb-2">
-                                        <p>Name</p>
-                                        <Input type="text" placeholder="Enter your name" className="bg-[#DEDEDD]" />
-                                    </div>
-                                    <div className="flex flex-col mb-2">
                                         <p>Email</p>
                                         <Input type="text" placeholder="Enter your email" className="bg-[#DEDEDD]" />
                                     </div>
-                                    <div className="flex flex-col mb-6">
+                                    <div className="flex flex-col mb-2">
                                         <p>Password</p>
                                         <Input type="text" placeholder="Enter your password" className="bg-[#DEDEDD]" />
                                     </div>
-                                    <div className="flex flex-col items-center">
-                                        <Button className="w-[70%] mt-4 bg-[#8474B7] text-black">Sign Up</Button>
+                                    <div className="flex justify-between items-center">
+                                        <div className="flex items-center">
+                                            <Checkbox />
+                                            <Label className="text-black ms-2 font-normal text-sm">Remember me</Label>
+                                        </div>
+                                        <p className="me-2 text-[#8474B7] text-sm font-normal">Forgot password</p>
+                                    </div>
+                                    <div className="flex flex-col items-center mt-6">
+                                        <Button className="w-[70%] mt-4 bg-[#8474B7] text-black">Sign In</Button>
                                     </div>
                                 </form>
 
@@ -64,8 +70,8 @@ const RegisterPage = () => {
                                 </div>
                             </div>
                             <div className="flex justify-center text-[12px] mt-3">
-                                <p>already have an account?</p>
-                                <p className="text-[#72CBD7] ms-1">Sign in</p>
+                                <p>dont have an account?</p>
+                                <p className="text-[#72CBD7] ms-1">Sign Up</p>
                             </div>
                         </div>
                     </div>

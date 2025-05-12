@@ -22,14 +22,15 @@ const RegisterPage = () => {
                         <div className="bg-transparent flex flex-col items-center justify-center">
                             <Image src={Thumbnail} alt="Logo" className="mx-auto mb-4 lg:w-[75%]" />
                             <p className="text-black lg:text-[25px] text-center mt-4">
-                                Sign up now to discover the full experience
+                                Sign in now to discover the full experience
                             </p>
                         </div>
                     </div>
                     <div className="w-1/2 flex items-center justify-center rounded-md">
                         <div className="bg-white w-[65%] h-[80%] rounded-[15px] flex justify-center items-center flex-col">
                             <div className="flex flex-col mx-auto w-full max-w-md px-16">
-                                <h1 className="text-black text-[25px] text-left mt-4 mb-5">Create Your Account</h1>
+                                <h1 className="text-black text-[25px] text-left mt-4">Welcome Back! </h1>
+                                <h1 className="text-black text-[25px] text-left mb-5">Sign in to continue</h1>
                                 <form>
                                     <div className="flex flex-col mb-2">
                                         <p>Email</p>

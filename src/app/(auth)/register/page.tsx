@@ -24,7 +24,7 @@ const RegisterPage = () => {
                         </div>
                     </div>
                     <div className="w-1/2 flex items-center justify-center rounded-md">
-                        <div className="bg-white w-[65%] h-[80%] rounded-[15px]">
+                        <div className="bg-white w-[65%] h-[80%] rounded-[15px] flex justify-center items-center flex-col">
                             <div className="flex flex-col mx-auto w-full max-w-md px-16">
                                 <h1 className="text-black text-[25px] text-left mt-4 mb-5">Create Your Account</h1>
                                 <form>

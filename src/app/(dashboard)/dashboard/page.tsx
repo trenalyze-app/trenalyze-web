@@ -35,12 +35,16 @@ export default function DashboardPage() {
             <Input
               key={index}
               placeholder={`Input ${index + 1}`}
-              className="h-[70px] rounded-md bg-[#2A2C38] border-[#2A2C38] text-white w-[15%]"
+              className="h-[85px] rounded-md bg-[#2A2C38] border-[#2A2C38] text-white w-[15%]"
               value={value}
               onChange={(e) => handleChange(index, e.target.value)}
               onKeyDown={(e) => handleKeyDown(e, index)}
             />
           ))}
+        </div>
+        <br />
+        <div className="div bg-[#2A2C38] w-[775px] ms-10 rounded-sm h-[440px] text-white p-5">
+          <p>helllo world</p>
         </div>
       </div>
     </>

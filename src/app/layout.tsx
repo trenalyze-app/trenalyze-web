@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
-import ReactQueryProvider from './ReactQueryProvider'; // pastikan path sesuai
+import ReactQueryProvider from '../lib/Provider';
+import { Toaster } from "@/components/ui/sonner"
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -29,6 +30,7 @@ export default function RootLayout({
         <ReactQueryProvider>
           {children}
         </ReactQueryProvider>
+        <Toaster />
       </body>
     </html>
   );

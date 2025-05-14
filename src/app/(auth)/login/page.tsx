@@ -1,3 +1,4 @@
+'use client';
 import Image from "next/image";
 import Thumbnail from "@/../public/Logo.png";
 import { Input } from "@/components/ui/input"
@@ -6,9 +7,94 @@ import IconGoogle from "@/../public/Social Icons.png"
 import IconAppel from "@/../public/Social Icons (1).png"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useMutation } from "@tanstack/react-query";
+import { axiosInstance } from "@/lib/axios";
+import { AxiosError } from "axios";
+import { useState } from "react";
+import { toast } from "sonner"
+import { useFormik } from 'formik';
 
+
+interface FormErrors {
+    email: string[];
+    password: string[];
+}
+
+
+interface FormData {
+    email: string;
+    password: string;
+}
+
+interface ErrorResponse {
+    message: string;
+    errors?: {
+        [field: string]: string[];
+    };
+}
 
 const RegisterPage = () => {
+    const [formErrors, setFormErrors] = useState<FormErrors>({
+        email: [],
+        password: [],
+    });
+
+    const handleValidation = (errors: { email: string[]; password: string[] }) => {
+        setFormErrors({
+            email: errors.email || [],
+            password: errors.password || [],
+        });
+    };
+
+    const { mutate } = useMutation({
+        mutationFn: async (data: FormData) => {
+            const response = await axiosInstance.post('/trenalyze/login', data);
+            return response;
+        },
+        onError: (error) => {
+            const err = error as AxiosError<ErrorResponse>;
+            const data = err?.response?.data
+            console.log(data)
+            if (err.response?.status === 400 && err.response.data.errors) {
+                handleValidation({
+                    email: err.response?.data?.errors?.email ?? [],
+                    password: err.response?.data?.errors?.password ?? [],
+                });
+                toast(err?.response?.data?.message)
+                return
+            }
+            if (err.response?.status === 403) {
+                toast("user is inactive")
+            }
+            toast(err?.response?.data?.message)
+            return
+        },
+        onSuccess: async (data) => {
+            const dataApi = data.data
+            toast(dataApi.message)
+        },
+    })
+
+    const formik = useFormik({
+        initialValues: {
+            email: '',
+            password: '',
+        },
+        onSubmit: (values, { setSubmitting }) => {
+            try {
+                const { email, password } = values
+                mutate({
+                    email,
+                    password
+                })
+            } catch (error) {
+                console.error('Terjadi kesalahan:', error);
+            } finally {
+                setSubmitting(false);
+            }
+        },
+    })
+
     return (
         <>
             <div
@@ -31,14 +117,14 @@ const RegisterPage = () => {
                             <div className="flex flex-col mx-auto w-full max-w-md px-16">
                                 <h1 className="text-black text-[25px] text-left mt-4">Welcome Back! </h1>
                                 <h1 className="text-black text-[25px] text-left mb-5">Sign in to continue</h1>
-                                <form>
+                                <form onSubmit={formik.isSubmitting ? () => {} : formik.handleSubmit}>
                                     <div className="flex flex-col mb-2">
                                         <p>Email</p>
-                                        <Input type="text" placeholder="Enter your email" className="bg-[#DEDEDD]" />
+                                        <Input type="text" placeholder="Enter your email" className="bg-[#DEDEDD]" name="email" onChange={formik.handleChange} value={formik.values.email} />
                                     </div>
                                     <div className="flex flex-col mb-2">
                                         <p>Password</p>
-                                        <Input type="text" placeholder="Enter your password" className="bg-[#DEDEDD]" />
+                                        <Input type="text" placeholder="Enter your password" className="bg-[#DEDEDD]" name="password" onChange={formik.handleChange} value={formik.values.password} />
                                     </div>
                                     <div className="flex justify-between items-center">
                                         <div className="flex items-center">
@@ -48,7 +134,7 @@ const RegisterPage = () => {
                                         <p className="me-2 text-[#8474B7] text-sm font-normal">Forgot password</p>
                                     </div>
                                     <div className="flex flex-col items-center mt-6">
-                                        <Button className="w-[70%] mt-4 bg-[#8474B7] text-black">Sign In</Button>
+                                        <Button className="w-[70%] mt-4 bg-[#8474B7] text-black" type="submit">Sign In</Button>
                                     </div>
                                 </form>
 

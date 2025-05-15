@@ -29,7 +29,7 @@ export function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
+                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md">
                                         <Home className="w-5 h-5" />
                                         <span>Dashboard</span>
                                     </a>
@@ -37,7 +37,7 @@ export function AppSidebar() {
                             </SidebarMenuItem>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
+                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md">
                                         <ChartPie className="w-5 h-5" />
                                         <span>Sentiment Analysis</span>
                                     </a>
@@ -45,7 +45,7 @@ export function AppSidebar() {
                             </SidebarMenuItem>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
+                                    <a href="#" className="flex items-center gap-3 p-2 rounded-md">
                                         <Sparkles className="w-5 h-5" />
                                         <span>AI Market Analyst</span>
                                     </a>
@@ -59,7 +59,7 @@ export function AppSidebar() {
                         <p className="ms-2">Settings</p>
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
+                                <a href="#" className="flex items-center gap-3 p-2 rounded-md">
                                     <User className="w-5 h-5" />
                                     <span>Profile</span>
                                 </a>
@@ -67,7 +67,7 @@ export function AppSidebar() {
                         </SidebarMenuItem>
                         <SidebarMenuItem>
                             <SidebarMenuButton asChild>
-                                <a href="#" className="flex items-center gap-3 p-2 rounded-md hover:text-white">
+                                <a href="#" className="flex items-center gap-3 p-2 rounded-md">
                                     <Settings className="w-5 h-5" />
                                     <span>Profile</span>
                                 </a>

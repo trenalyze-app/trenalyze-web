@@ -98,7 +98,7 @@ export default function SentimentPage() {
     return (
         <>
             <div className="bg-[#78778f] h-full">
-                <h1 className="text-white text-2xl ms-10">Dashboard</h1>
+                <h1 className="text-white text-2xl ms-10">Sentiment Analysis</h1>
                 <br />
                 <div className="flex flex-row justify-center gap-5">
                     {inputs.map((value, index) => (

@@ -11,7 +11,7 @@ const AccountSettings = () => {
             <h1 className="text-3xl font-semibold mb-8">Account Settings</h1>
             <div className="flex gap-8">
                 <div className="flex flex-col gap-4">
-                    <Button className="bg-[#2A2C38]" className="w-32">
+                    <Button className="bg-[#2A2C38] w-32">
                         My Profile
                     </Button>
                     <Button variant="destructive" className="w-32">

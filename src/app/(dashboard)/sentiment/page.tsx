@@ -62,16 +62,6 @@ function getColor(score: number): string {
     return "bg-green-500"
 }
 
-
-const dataRegion = [
-    { name: "Jan", uv: 400 },
-    { name: "Feb", uv: 300 },
-    { name: "Mar", uv: 500 },
-    { name: "Apr", uv: 200 },
-    { name: "May", uv: 600 },
-    { name: "Jun", uv: 700 },
-];
-
 export default function SentimentPage() {
     const [inputs, setInputs] = useState([""]);
 
